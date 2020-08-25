@@ -6,11 +6,25 @@ class Gameplay extends Component {
     playerWins: 0,
     computerWins: 0,
     numberOfRounds: 0,
-    selections: ['rock', 'paper', 'scissors']
+    availableChoices: ['Rock', 'Paper', 'Scissors'],
+    currentRoundChoices: {
+      playerChoice: "",
+      computerChoice: ""
+    }
   }
   
-  playerChoice(selection) {
-    console.log('hi');
+  playerChoice(e) {
+    let playerChoice = e.target.textContent;
+    this.state.availableChoices.forEach((choice) => {
+      if (playerChoice === choice) {
+        console.log(playerChoice);
+        this.setState({
+          currentRoundChoices: {
+            playerChoice: playerChoice
+          } 
+        });
+      }
+    });
   }
   
   computerChoice() {
@@ -26,9 +40,9 @@ class Gameplay extends Component {
       <div className="container">
         <p>Select of the moves below. Best out of 5 wins!</p>
         <div className="selection-container">
-          <button>Rock</button>
-          <button>Paper</button>
-          <button>Scissors</button>
+          <button id="rock-btn" onClick={(e) => this.playerChoice(e)}>Rock</button>
+          <button id="paper-btn" onClick={(e) => this.playerChoice(e)}>Paper</button>
+          <button id="scissors-btn" onClick={(e) => this.playerChoice(e)}>Scissors</button>
         </div>
       </div>
     )
