@@ -1,3 +1,20 @@
 header {
+  position: relative;
   text-align: center;
+  background-color: #333;
+}
+
+header h1 {
+  margin-top: 0;
+  padding: 20px;
+  color: #fff;
+}
+
+header p {
+  position: absolute;
+  top: 15%;
+  right: 8%;
+  font-size: 0.8rem;
+  color: #fff;
+  transform: rotate(15deg);
 }
