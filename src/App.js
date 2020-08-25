@@ -3,6 +3,10 @@ import Header from './components/Header';
 import "./App.css";
 
 class App extends Component {
+  state = {
+    gameWon: false
+  }
+
   render(){
     return (
       <div className="App">
