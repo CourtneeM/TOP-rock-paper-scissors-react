@@ -4,17 +4,21 @@ import Gameplay from './components/Gameplay';
 import "./App.css";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.playerChoice.bind(this);
+  }
+
   state = {
     gameWon: false,
     playerChoice: "",
     availableChoices: ['Rock', 'Paper', 'Scissors'],
   }
 
-  playerChoice(playerChoice) {
+  playerChoice = (playerChoice) => {
     this.setState({
-      playerChoice: playerChoice
+      playerChoice
     });
-    console.log(playerChoice);
   }
   
   render(){
