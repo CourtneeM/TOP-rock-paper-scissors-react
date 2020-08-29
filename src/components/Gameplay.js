@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import "../styles/Gameplay.css";
 
 class Gameplay extends Component {
@@ -13,20 +14,6 @@ class Gameplay extends Component {
     }
   }
   
-  playerChoice(e) {
-    let playerChoice = e.target.textContent;
-    this.state.availableChoices.forEach((choice) => {
-      if (playerChoice === choice) {
-        console.log(playerChoice);
-        this.setState({
-          currentRoundChoices: {
-            playerChoice: playerChoice
-          } 
-        });
-      }
-    });
-  }
-  
   computerChoice() {
     
   }
@@ -34,19 +21,27 @@ class Gameplay extends Component {
   playMatch() {
     
   }
+
+  handleClick() {
+    this.props.playerChoice.bind();
+  }
   
   render() {
     return (
       <div className="container">
         <p>Select of the moves below. Best out of 5 wins!</p>
         <div className="selection-container">
-          <button id="rock-btn" onClick={(e) => this.playerChoice(e)}>Rock</button>
-          <button id="paper-btn" onClick={(e) => this.playerChoice(e)}>Paper</button>
-          <button id="scissors-btn" onClick={(e) => this.playerChoice(e)}>Scissors</button>
+          <button id="rock-btn" onClick={handleClick}>Rock</button>
+          {/* <button id="paper-btn" onClick={(e) => this.props.playerChoice.bind(this, e.target.textContent)}>Paper</button>
+          <button id="scissors-btn" onClick={(e) => this.props.playerChoice.bind(this, e.target.textContent)}>Scissors</button> */}
         </div>
       </div>
     )
   }
+}
+
+Gameplay.propTypes = {
+  playerChoice: PropTypes.func.isRequired
 }
 
 export default Gameplay;

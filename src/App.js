@@ -5,17 +5,29 @@ import "./App.css";
 
 class App extends Component {
   state = {
-    gameWon: false
+    gameWon: false,
+    playerChoice: "",
+    availableChoices: ['Rock', 'Paper', 'Scissors'],
+  }
+
+  playerChoice(playerChoice) {
+    this.setState({
+      playerChoice: playerChoice
+    });
+    console.log(playerChoice);
   }
   
   render(){
     return (
       <div className="App">
         <Header />
-        <Gameplay />
+        <Gameplay playerChoice={this.playerChoice}/>
       </div>
     )
   }
 }
 
 export default App;
+
+
+// find way to user .bind with onClick on Gameplay component
