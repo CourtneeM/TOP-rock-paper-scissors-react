@@ -8,6 +8,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.playerChoice.bind(this);
+    this.computerChoice.bind(this);
   }
 
   state = {
@@ -22,12 +23,18 @@ class App extends Component {
       playerChoice
     });
   }
+
+  computerChoice = (computerChoice) => {
+    this.setState({
+      computerChoice
+    });
+  }
   
   render(){
     return (
       <div className="App">
         <Header />
-        <Gameplay playerChoice={this.playerChoice} />
+        <Gameplay playerChoice={this.playerChoice} computerChoice={this.computerChoice} />
         <Results playerChoice={this.state.playerChoice} computerChoice={this.state.computerChoice} />
       </div>
     )

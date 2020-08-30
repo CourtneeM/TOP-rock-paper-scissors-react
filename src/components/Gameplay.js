@@ -25,10 +25,12 @@ class Gameplay extends Component {
   handleClick = (e) => {
     this.setState({
       currentRoundChoices: {
-        playerChoice: e.target.textContent
+        playerChoice: e.target.textContent,
+        computerChoice: this.state.availableChoices[Math.floor(Math.floor(Math.random(this.state.availableChoices.length) * this.state.availableChoices.length))]
       }
     }, () => {
       this.props.playerChoice(this.state.currentRoundChoices.playerChoice);
+      this.props.computerChoice(this.state.currentRoundChoices.computerChoice);
     }); 
   }
   
