@@ -13,13 +13,42 @@ class Gameplay extends Component {
       computerChoice: ""
     }
   }
-  
-  computerChoice() {
-    
-  }
-  
+
   playMatch() {
+    let playerChoice = this.state.currentRoundChoices.playerChoice;
+    let computerChoice = this.state.currentRoundChoices.computerChoice;
     
+    const rockWin = () => {
+      if (playerChoice === 'Rock') {
+        this.setState({
+          playerWins: this.state.playerWins + 1
+        })
+      } else {
+        this.setState({
+          computerWins: this.state.computerWins + 1
+        })
+      }
+      console.log(this.state.currentRoundChoices.playerChoice);
+    };
+
+    rockWin();
+    // switch statement
+    // rock beat scissors
+    // scissors beat paper
+    // paper beat rock
+    this.setState({
+      numberOfRounds: this.state.numberOfRounds + 1
+    });
+  }
+
+  checkForWin() {
+    if (this.state.numberOfRounds >= 5) {
+      if (this.state.playerWins > this.state.computerWins) {
+        this.props.gameResults(true);
+      } else {
+        this.props.gameResults(false);
+      }
+    }
   }
 
   handleClick = (e) => {
@@ -31,6 +60,8 @@ class Gameplay extends Component {
     }, () => {
       this.props.playerChoice(this.state.currentRoundChoices.playerChoice);
       this.props.computerChoice(this.state.currentRoundChoices.computerChoice);
+      this.playMatch();
+      this.checkForWin();
     }); 
   }
   

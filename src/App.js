@@ -12,10 +12,22 @@ class App extends Component {
   }
 
   state = {
-    gameWon: false,
+    gameResults: {
+      gameOver: false,
+      gameWon: false
+    },
     playerChoice: "",
     computerChoice: "",
     availableChoices: ['Rock', 'Paper', 'Scissors'],
+  }
+
+  gameResults = (gameWon) => {
+    this.setState({
+      gameResults: {
+        gameOver: true,
+        gameWon
+      }
+    });
   }
 
   playerChoice = (playerChoice) => {
@@ -34,7 +46,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Gameplay playerChoice={this.playerChoice} computerChoice={this.computerChoice} />
+        <Gameplay playerChoice={this.playerChoice} computerChoice={this.computerChoice} gameResults={this.gameResults} />
         <Results playerChoice={this.state.playerChoice} computerChoice={this.state.computerChoice} />
       </div>
     )
