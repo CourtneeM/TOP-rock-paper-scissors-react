@@ -38,8 +38,8 @@ class Gameplay extends Component {
         <p>Select of the moves below. Best out of 5 wins!</p>
         <div className="selection-container">
           <button id="rock-btn" onClick={this.handleClick}>Rock</button>
-          {/* <button id="paper-btn" onClick={(e) => this.props.playerChoice.bind(this, e.target.textContent)}>Paper</button>
-          <button id="scissors-btn" onClick={(e) => this.props.playerChoice.bind(this, e.target.textContent)}>Scissors</button> */}
+          <button id="paper-btn" onClick={this.handleClick}>Paper</button>
+          <button id="scissors-btn" onClick={this.handleClick}>Scissors</button>
         </div>
       </div>
     )
