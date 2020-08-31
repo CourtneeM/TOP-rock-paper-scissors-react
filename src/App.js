@@ -14,7 +14,7 @@ class App extends Component {
   state = {
     gameResults: {
       gameOver: false,
-      gameWon: false
+      didWin: ""
     },
     roundNumber: 0,
     playerChoice: "",
@@ -23,10 +23,16 @@ class App extends Component {
   }
 
   gameResults = (gameWon) => {
+    let didWin = "";
+    if (gameWon) {
+      didWin = 'You win!';
+    } else {
+      didWin = 'You lose!';
+    }
     this.setState({
       gameResults: {
         gameOver: true,
-        gameWon
+        didWin
       }
     });
   }
@@ -54,7 +60,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <Gameplay playerChoice={this.playerChoice} computerChoice={this.computerChoice} gameResults={this.gameResults} roundNumber={this.roundNumber} />
-        <Results playerChoice={this.state.playerChoice} computerChoice={this.state.computerChoice} roundNumber={this.state.roundNumber}/>
+        <Results playerChoice={this.state.playerChoice} computerChoice={this.state.computerChoice} roundNumber={this.state.roundNumber} gameResults={this.state.gameResults} />
       </div>
     )
   }

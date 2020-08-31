@@ -15,12 +15,6 @@ class Gameplay extends Component {
   }
 
   playMatch() {
-    this.checkForWin();
-
-    if (this.props.gameResults.gameOver) {
-      return;
-    }
-
     let playerChoice = this.state.currentRoundChoices.playerChoice;
     let computerChoice = this.state.currentRoundChoices.computerChoice;
     
