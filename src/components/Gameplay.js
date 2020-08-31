@@ -41,7 +41,7 @@ class Gameplay extends Component {
     // scissors beat paper
     // paper beat rock
 
-    // roundNumber counting one extra
+    // Set up win conditions //
     
     rockWin();
   }
@@ -51,6 +51,7 @@ class Gameplay extends Component {
       roundNumber: this.state.roundNumber + 1
     }, () => {
       this.props.roundNumber(this.state.roundNumber);
+      this.checkForWin();
     });
   }
 
