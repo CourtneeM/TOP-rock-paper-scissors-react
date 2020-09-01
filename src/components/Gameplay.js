@@ -53,9 +53,6 @@ class Gameplay extends Component {
         })
       }
     }
-
-    // set up tie message
-    // Set up win conditions //
     
     rockWinLose();
     paperWinLose();
@@ -107,6 +104,7 @@ class Gameplay extends Component {
       roundNumber: 0
     }, () => {
       this.props.roundNumber(this.state.roundNumber);
+      this.props.resetResults();
       this.enableChoices();
     });
   }

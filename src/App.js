@@ -56,12 +56,21 @@ class App extends Component {
       computerChoice
     });
   }
+
+  resetResults = () => {
+    this.setState({
+      gameResults: {
+        gameOver: false,
+        didWin: ""
+      }
+    });
+  }
   
   render(){
     return (
       <div className="App">
         <Header />
-        <Gameplay playerChoice={this.playerChoice} computerChoice={this.computerChoice} gameResults={this.gameResults} roundNumber={this.roundNumber} />
+        <Gameplay playerChoice={this.playerChoice} computerChoice={this.computerChoice} gameResults={this.gameResults} roundNumber={this.roundNumber} resetResults={this.resetResults}/>
         <Results playerChoice={this.state.playerChoice} computerChoice={this.state.computerChoice} roundNumber={this.state.roundNumber} gameResults={this.state.gameResults} />
       </div>
     )

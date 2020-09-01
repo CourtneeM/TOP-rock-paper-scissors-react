@@ -6,7 +6,7 @@ class Results extends Component {
   render() {
     return (
       <div className="results-container">
-        <p onChange={ this.checkForGameOver }>Round Number: {this.props.roundNumber}</p>
+        <p>Round Number: {this.props.roundNumber}</p>
         <p>
           Player choice:  {this.props.playerChoice} | Computer choice: {this.props.computerChoice}
         </p>
