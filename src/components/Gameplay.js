@@ -18,26 +18,48 @@ class Gameplay extends Component {
     let playerChoice = this.state.currentRoundChoices.playerChoice;
     let computerChoice = this.state.currentRoundChoices.computerChoice;
     
-    const rockWin = () => {
-      if (playerChoice === 'Rock') {
+    const rockWinLose = () => {
+      if (playerChoice === 'Rock' && computerChoice === 'Scissors') {
         this.setState({
           playerWins: this.state.playerWins + 1
         })
-      } else {
+      } else if (playerChoice === 'Rock' && computerChoice === 'Paper') {
         this.setState({
           computerWins: this.state.computerWins + 1
         })
       }
     };
 
-    // switch statement
-    // rock beat scissors
-    // scissors beat paper
-    // paper beat rock
+    const paperWinLose = () => {
+      if (playerChoice === 'Paper' && computerChoice === 'Rock') {
+        this.setState({
+          playerWins: this.state.playerWins + 1
+        })
+      } else if (playerChoice === 'Paper' && computerChoice === 'Scissors') {
+        this.setState({
+          computerWins: this.state.computerWins + 1
+        })
+      }
+    }
 
+    const scissorsWinLose = () => {
+      if (playerChoice === 'Scissors' && computerChoice === 'Paper') {
+        this.setState({
+          playerWins: this.state.playerWins + 1
+        })
+      } else if (playerChoice === 'Scissors' && computerChoice === 'Rock') {
+        this.setState({
+          computerWins: this.state.computerWins + 1
+        })
+      }
+    }
+
+    // set up tie message
     // Set up win conditions //
     
-    rockWin();
+    rockWinLose();
+    paperWinLose();
+    scissorsWinLose();
   }
 
   roundNumber() {
@@ -51,7 +73,9 @@ class Gameplay extends Component {
 
   checkForWin() {
     if (this.state.roundNumber === 5) {
-      if (this.state.playerWins > this.state.computerWins) {
+      if (this.state.playerWins === this.state.computerWins) {
+        this.props.gameResults('tie');
+      } else if (this.state.playerWins > this.state.computerWins) {
         this.props.gameResults(true);
       } else {
         this.props.gameResults(false);

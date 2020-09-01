@@ -24,10 +24,12 @@ class App extends Component {
 
   gameResults = (gameWon) => {
     let didWin = "";
-    if (gameWon) {
-      didWin = 'You win!';
-    } else {
+    if (gameWon === 'tie') {
+      didWin = "It's a tie!";
+    } else if (!gameWon) {
       didWin = 'You lose!';
+    } else if (gameWon) {
+      didWin = "You win!";
     }
     this.setState({
       gameResults: {
