@@ -18,3 +18,27 @@ header p {
   color: #fff;
   transform: rotate(15deg);
 }
+
+@media screen and (max-width: 690px) {
+  header h1 {
+    font-size: 1.6rem;
+  }
+
+  header p {
+    top: 20%;
+    font-size: 0.6rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  header h1 {
+    font-size: 1.4rem;
+  }
+
+  header p {
+    top: 40px;
+    right: 30%;
+    left: 35%;
+    transform: rotate(0deg);
+  }
+}
